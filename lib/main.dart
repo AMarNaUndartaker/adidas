@@ -63,18 +63,18 @@ class HomeScreen extends StatelessWidget {
               ],
             ),
           ),
-          Expanded(child:Container(
-            decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                colors: [
-                  Color.fromARGB(255, 255, 255, 255),
-                  Color.fromARGB(255, 255, 255, 255),
-                ],
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
+         Padding(
+            padding: const EdgeInsets.all(10),
+            child: Center(
+              child: Image.asset(
+                "asset\Image\2020-05-06 (1).png", 
+                width: 300,
+                height: 200,
+                fit: BoxFit.cover, // ปรับให้รูปเต็มพื้นที่
               ),
             ),
-          ), )
+          ),
+          
           
         ],
       ),
