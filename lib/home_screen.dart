@@ -1,137 +1,231 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart'; // อิมพอร์ต Flutter Material
 
-void main() {
-  runApp(AdidasApp());
+class HomeScreen extends StatefulWidget {
+  @override
+  _HomeScreenState createState() => _HomeScreenState();
 }
 
-class AdidasApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Adidas Store',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        fontFamily: 'Roboto',
-      ),
-      home: HomePage(),
-    );
+class _HomeScreenState extends State<HomeScreen> {
+  int _selectedIndex = 0;
+
+  // ฟังก์ชันสำหรับการเลือกเมนู
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
   }
-}
-
-class HomePage extends StatelessWidget {
-  final List<Map<String, String>> shoes = [
-    {
-      'name': 'Ultraboost 22',
-      'image': 'assets/ultraboost.jpg',
-      'price': '\$180'
-    },
-    {'name': 'NMD R1', 'image': 'assets/nmd_r1.jpg', 'price': '\$140'},
-  ];
-
-  final List<Map<String, String>> jackets = [
-    {
-      'name': 'Adidas Windbreaker',
-      'image': 'assets/windbreaker.jpg',
-      'price': '\$120'
-    },
-    {'name': 'Adidas Hoodie', 'image': 'assets/hoodie.jpg', 'price': '\$90'},
-  ];
-
-  final List<Map<String, String>> hats = [
-    {'name': 'Adidas Cap', 'image': 'assets/cap.jpg', 'price': '\$35'},
-    {'name': 'Adidas Beanie', 'image': 'assets/beanie.jpg', 'price': '\$30'},
-  ];
 
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: 3,
-      child: Scaffold(
-        appBar: AppBar(
-          title: Text('Adidas Store',
-              style: TextStyle(fontWeight: FontWeight.bold)),
-          centerTitle: true,
-          bottom: PreferredSize(
-            preferredSize: Size.fromHeight(50.0),
-            child: Container(
-              color: Colors.white,
-              child: TabBar(
-                indicatorColor: Colors.blue,
-                labelColor: Colors.black,
-                unselectedLabelColor: Colors.grey,
-                tabs: [
-                  Tab(icon: Icon(Icons.directions_run), text: 'Shoes'),
-                  Tab(icon: Icon(Icons.checkroom), text: 'Jackets'),
-                  Tab(icon: Icon(Icons.style), text: 'Hats'),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('SHOP'),
+        backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+        elevation: 4,
+      ),
+      body: SingleChildScrollView( // ใช้ SingleChildScrollView เพื่อให้หน้าจอเลื่อน
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(10),
+              child: TextField(
+                decoration: InputDecoration(
+                  hintText: "Search...",
+                  prefixIcon: const Icon(Icons.search),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                    borderSide: BorderSide.none,
+                  ),
+                  filled: true,
+                  fillColor: Colors.white,
+                ),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.all(5),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: const [
+                  SizedBox(width:10),
+                  Text(
+                    "Men",
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Color.fromARGB(255, 0, 0, 0)),
+                  ),
+                  SizedBox(width:10),
+                  Text(
+                    "Women",
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Color.fromARGB(255, 0, 0, 0)),
+                  ),
+                  SizedBox(width:10),
+                  Text(
+                    "Kids",
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Color.fromARGB(255, 0, 0, 0)),
+                  ),
                 ],
               ),
             ),
-          ),
-        ),
-        body: TabBarView(
-          children: [
-            ProductGrid(products: shoes),
-            ProductGrid(products: jackets),
-            ProductGrid(products: hats),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class ProductGrid extends StatelessWidget {
-  final List<Map<String, String>> products;
-  ProductGrid({required this.products});
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.all(10.0),
-      child: GridView.builder(
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-          crossAxisSpacing: 10,
-          mainAxisSpacing: 10,
-          childAspectRatio: 0.8,
-        ),
-        itemCount: products.length,
-        itemBuilder: (context, index) {
-          return Card(
-            elevation: 5,
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Expanded(
-                  child: ClipRRect(
-                    borderRadius:
-                        BorderRadius.vertical(top: Radius.circular(15)),
-                    child: Image.asset(
-                      products[index]['image']!,
-                      fit: BoxFit.cover,
-                    ),
-                  ),
+            Padding(
+              padding: const EdgeInsets.all(10),
+              child: Center(
+                child: Image.asset(
+                  "assets/Image/kawaii.png", 
+                  width: 800,
+                  height: 500,
+                  fit: BoxFit.cover, // ปรับให้รูปเต็มพื้นที่
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    children: [
-                      Text(products[index]['name']!,
-                          style: TextStyle(
-                              fontSize: 16, fontWeight: FontWeight.bold)),
-                      SizedBox(height: 5),
-                      Text(products[index]['price']!,
-                          style: TextStyle(fontSize: 14, color: Colors.grey)),
-                    ],
-                  ),
+              ),
+            ),
+            // List ที่สามารถเลื่อนได้
+            ListView(
+              shrinkWrap: true, // ให้ ListView ย่อขนาดได้
+              physics: NeverScrollableScrollPhysics(), // ปิดการเลื่อนใน ListView
+              children: [
+                ListTile(
+                  leading: Icon(Icons.directions_run, color: const Color.fromARGB(255, 0, 0, 0)), // ไอคอนรองเท้า
+                  title: const Text("SHOES", style: TextStyle(fontSize: 18, color: Color.fromARGB(255, 0, 0, 0))),
+                  trailing: const Icon(Icons.arrow_forward, color: Color.fromARGB(255, 0, 0, 0)),
+                  onTap: () {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text("You tapped on SHOES")),
+                    );
+                  },
+                ),
+                SizedBox(height: 10),
+                ListTile(
+                  leading: Icon(Icons.checkroom, color: const Color.fromARGB(255, 0, 0, 0)), // ไอคอนเสื้อผ้า
+                  title: const Text("CLOTHING", style: TextStyle(fontSize: 18, color: Color.fromARGB(255, 0, 0, 0))),
+                  trailing: const Icon(Icons.arrow_forward, color: Color.fromARGB(255, 0, 0, 0)),
+                  onTap: () {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text("You tapped on CLOTHING")),
+                    );
+                  },
+                ),
+                SizedBox(height: 10),
+                ListTile(
+                  leading: Icon(Icons.watch, color: const Color.fromARGB(255, 0, 0, 0)), // ไอคอนเครื่องประดับ
+                  title: const Text("ACCESSORIES", style: TextStyle(fontSize: 18, color: Color.fromARGB(255, 0, 0, 0))),
+                  trailing: const Icon(Icons.arrow_forward, color: Color.fromARGB(255, 0, 0, 0)),
+                  onTap: () {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text("You tapped on ACCESSORIES")),
+                    );
+                  },
+                ),
+                SizedBox(height: 10),
+              ],
+            ),
+            // เพิ่มแถวของ Container
+            Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    // ใช้ Expanded เพื่อให้ Container ขยายให้เต็มพื้นที่
+                    Expanded(
+                      child: Container(
+                        height: 250,
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Colors.black), // กรอบสีดำ
+                          borderRadius: BorderRadius.circular(10), // มุมโค้ง
+                        ),
+                        child: Center(
+                          child: Text("sale", style: TextStyle(color: const Color.fromARGB(255, 0, 0, 0))),
+                        ),
+                      ),
+                    ),
+                    SizedBox(width: 10), // ช่องว่างระหว่าง Container
+                    Expanded(
+                      child: Container(
+                        height: 250,
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Colors.black), // กรอบสีดำ
+                          borderRadius: BorderRadius.circular(10), // มุมโค้ง
+                        ),
+                        child: Center(
+                          child: Text("new & trending", style: TextStyle(color: const Color.fromARGB(255, 0, 0, 0))),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 10),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Expanded(
+                      child: Container(
+                        height: 250,
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Colors.black), // กรอบสีดำ
+                          borderRadius: BorderRadius.circular(10), // มุมโค้ง
+                        ),
+                        child: Center(
+                          child: Text("sport", style: TextStyle(color: const Color.fromARGB(255, 0, 0, 0))),
+                        ),
+                      ),
+                    ),
+                    SizedBox(width: 10), // ช่องว่างระหว่าง Container
+                    Expanded(
+                      child: Container(
+                        height: 250,
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Colors.black), // กรอบสีดำ
+                          borderRadius: BorderRadius.circular(10), // มุมโค้ง
+                        ),
+                        child: Center(
+                          child: Text("giftcard", style: TextStyle(color: const Color.fromARGB(255, 0, 0, 0))),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),
-          );
-        },
+          ],
+        ),
+      ),
+      // แถบเมนูด้านล่าง
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _selectedIndex, // เมนูที่เลือก
+        onTap: _onItemTapped, // ฟังก์ชันเมื่อกดเมนู
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.home,
+              color: Colors.black,
+            ),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.shopping_cart,
+              color: Colors.black,
+            ),
+            label: 'Cart',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.favorite,
+              color: Colors.black,
+            ),
+            label: 'Favorites',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.account_circle,
+              color: Colors.black,
+            ),
+            label: 'Profile',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.account_circle,
+              color: Colors.black,
+            ),
+            label: 'Profile',
+          ),
+        ],
       ),
     );
   }
