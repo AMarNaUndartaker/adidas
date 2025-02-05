@@ -4,6 +4,7 @@ void main() {
   runApp(const MyApp());
 }
 
+//adidas
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -35,7 +36,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _incrementCounter() {
     setState(() {
-    
       _counter++;
     });
   }
