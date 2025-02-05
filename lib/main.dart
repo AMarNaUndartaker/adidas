@@ -74,7 +74,42 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
           ),
-          
+           Expanded(
+            child: ListView(
+              children: [
+                ListTile(
+                  leading: Icon(Icons.directions_run, color: const Color.fromARGB(255, 0, 0, 0)), // ไอคอนรองเท้า
+                  title: const Text("SHOES", style: TextStyle(fontSize: 18, color: Color.fromARGB(255, 0, 0, 0))),
+                  onTap: () {
+                    // ทำสิ่งที่ต้องการเมื่อกดรายการนี้
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text("You tapped on SHOES")),
+                    );
+                  },
+                ),
+                ListTile(
+                  leading: Icon(Icons.checkroom, color: const Color.fromARGB(255, 0, 0, 0)), // ไอคอนเสื้อผ้า
+                  title: const Text("CLOTHING", style: TextStyle(fontSize: 18, color: Color.fromARGB(255, 0, 0, 0))),
+                  onTap: () {
+                    // ทำสิ่งที่ต้องการเมื่อกดรายการนี้
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text("You tapped on CLOTHING")),
+                    );
+                  },
+                ),
+                ListTile(
+                  leading: Icon(Icons.watch, color: const Color.fromARGB(255, 0, 0, 0)), // ไอคอนเครื่องประดับ
+                  title: const Text("ACCESSORIES", style: TextStyle(fontSize: 18, color: Color.fromARGB(255, 0, 0, 0))),
+                  onTap: () {
+                    // ทำสิ่งที่ต้องการเมื่อกดรายการนี้
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text("You tapped on ACCESSORIES")),
+                    );
+                  },
+                ),
+              ],
+            ),
+           ),
           
         ],
       ),
