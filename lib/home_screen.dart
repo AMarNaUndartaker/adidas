@@ -65,122 +65,131 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(10),
+              padding: const EdgeInsets.all(0.1),
               child: Center(
                 child: Image.asset(
-                  "assets/Image/kawaii.png", 
-                  width: 800,
-                  height: 500,
-                  fit: BoxFit.cover, // ปรับให้รูปเต็มพื้นที่
+                  "assets/image/kawaii.png", 
+                  width: double.infinity,
+                  height: 900,
+                  fit: BoxFit.fill, // ปรับให้รูปเต็มพื้นที่
                 ),
               ),
             ),
             // List ที่สามารถเลื่อนได้
-            ListView(
-              shrinkWrap: true, // ให้ ListView ย่อขนาดได้
-              physics: NeverScrollableScrollPhysics(), // ปิดการเลื่อนใน ListView
-              children: [
-                ListTile(
-                  leading: Icon(Icons.directions_run, color: const Color.fromARGB(255, 0, 0, 0)), // ไอคอนรองเท้า
-                  title: const Text("SHOES", style: TextStyle(fontSize: 18, color: Color.fromARGB(255, 0, 0, 0))),
-                  trailing: const Icon(Icons.arrow_forward, color: Color.fromARGB(255, 0, 0, 0)),
-                  onTap: () {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text("You tapped on SHOES")),
-                    );
-                  },
-                ),
-                SizedBox(height: 10),
-                ListTile(
-                  leading: Icon(Icons.checkroom, color: const Color.fromARGB(255, 0, 0, 0)), // ไอคอนเสื้อผ้า
-                  title: const Text("CLOTHING", style: TextStyle(fontSize: 18, color: Color.fromARGB(255, 0, 0, 0))),
-                  trailing: const Icon(Icons.arrow_forward, color: Color.fromARGB(255, 0, 0, 0)),
-                  onTap: () {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text("You tapped on CLOTHING")),
-                    );
-                  },
-                ),
-                SizedBox(height: 10),
-                ListTile(
-                  leading: Icon(Icons.watch, color: const Color.fromARGB(255, 0, 0, 0)), // ไอคอนเครื่องประดับ
-                  title: const Text("ACCESSORIES", style: TextStyle(fontSize: 18, color: Color.fromARGB(255, 0, 0, 0))),
-                  trailing: const Icon(Icons.arrow_forward, color: Color.fromARGB(255, 0, 0, 0)),
-                  onTap: () {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text("You tapped on ACCESSORIES")),
-                    );
-                  },
-                ),
-                SizedBox(height: 10),
-              ],
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 40),
+              child: ListView(
+                shrinkWrap: true, // ให้ ListView ย่อขนาดได้
+                physics: NeverScrollableScrollPhysics(), // ปิดการเลื่อนใน ListView
+                children: [
+                  ListTile(
+                    leading: Icon(Icons.directions_run, color: const Color.fromARGB(255, 0, 0, 0)), // ไอคอนรองเท้า
+                    title: const Text("SHOES", style: TextStyle(fontSize: 18, color: Color.fromARGB(255, 0, 0, 0))),
+                    trailing: const Icon(Icons.arrow_forward, color: Color.fromARGB(255, 0, 0, 0)),
+                    onTap: () {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text("You tapped on SHOES")),
+                      );
+                    },
+                  ),
+                  SizedBox(height: 10),
+                  ListTile(
+                    leading: Icon(Icons.checkroom, color: const Color.fromARGB(255, 0, 0, 0)), // ไอคอนเสื้อผ้า
+                    title: const Text("CLOTHING", style: TextStyle(fontSize: 18, color: Color.fromARGB(255, 0, 0, 0))),
+                    trailing: const Icon(Icons.arrow_forward, color: Color.fromARGB(255, 0, 0, 0)),
+                    onTap: () {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text("You tapped on CLOTHING")),
+                      );
+                    },
+                  ),
+                  SizedBox(height: 10),
+                  ListTile(
+                    leading: Icon(Icons.watch, color: const Color.fromARGB(255, 0, 0, 0)), // ไอคอนเครื่องประดับ
+                    title: const Text("ACCESSORIES", style: TextStyle(fontSize: 18, color: Color.fromARGB(255, 0, 0, 0))),
+                    trailing: const Icon(Icons.arrow_forward, color: Color.fromARGB(255, 0, 0, 0)),
+                    onTap: () {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text("You tapped on ACCESSORIES")),
+                      );
+                    },
+                  ),
+                  SizedBox(height: 10),
+                ],
+              ),
             ),
             // เพิ่มแถวของ Container
-            Column(
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    // ใช้ Expanded เพื่อให้ Container ขยายให้เต็มพื้นที่
-                    Expanded(
-                      child: Container(
-                        height: 250,
-                        decoration: BoxDecoration(
-                          border: Border.all(color: Colors.black), // กรอบสีดำ
-                          borderRadius: BorderRadius.circular(10), // มุมโค้ง
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 40),
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        // ใช้ Expanded เพื่อให้ Container ขยายให้เต็มพื้นที่
+                        Expanded(
+                          child: Container(
+                            height: 250,
+                            decoration: BoxDecoration(
+                              border: Border.all(color: Colors.black), // กรอบสีดำ
+                              borderRadius: BorderRadius.circular(10), // มุมโค้ง
+                            ),
+                            child: Center(
+                              child: Text("sale", style: TextStyle(color: const Color.fromARGB(255, 0, 0, 0))),
+                            ),
+                          ),
                         ),
-                        child: Center(
-                          child: Text("sale", style: TextStyle(color: const Color.fromARGB(255, 0, 0, 0))),
+                        SizedBox(width: 10), // ช่องว่างระหว่าง Container
+                        Expanded(
+                          child: Container(
+                            height: 250,
+                            decoration: BoxDecoration(
+                              border: Border.all(color: Colors.black), // กรอบสีดำ
+                              borderRadius: BorderRadius.circular(10), // มุมโค้ง
+                            ),
+                            child: Center(
+                              child: Text("new & trending", style: TextStyle(color: const Color.fromARGB(255, 0, 0, 0))),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(height: 10),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Expanded(
+                        child: Container(
+                          height: 250,
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.black), // กรอบสีดำ
+                            borderRadius: BorderRadius.circular(10), // มุมโค้ง
+                          ),
+                          child: Center(
+                            child: Text("sport", style: TextStyle(color: const Color.fromARGB(255, 0, 0, 0))),
+                          ),
                         ),
                       ),
-                    ),
-                    SizedBox(width: 10), // ช่องว่างระหว่าง Container
-                    Expanded(
-                      child: Container(
-                        height: 250,
-                        decoration: BoxDecoration(
-                          border: Border.all(color: Colors.black), // กรอบสีดำ
-                          borderRadius: BorderRadius.circular(10), // มุมโค้ง
-                        ),
-                        child: Center(
-                          child: Text("new & trending", style: TextStyle(color: const Color.fromARGB(255, 0, 0, 0))),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 10),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Expanded(
-                      child: Container(
-                        height: 250,
-                        decoration: BoxDecoration(
-                          border: Border.all(color: Colors.black), // กรอบสีดำ
-                          borderRadius: BorderRadius.circular(10), // มุมโค้ง
-                        ),
-                        child: Center(
-                          child: Text("sport", style: TextStyle(color: const Color.fromARGB(255, 0, 0, 0))),
+                      SizedBox(width: 10), // ช่องว่างระหว่าง Container
+                      Expanded(
+                        child: Container(
+                          height: 250,
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.black), // กรอบสีดำ
+                            borderRadius: BorderRadius.circular(10), // มุมโค้ง
+                          ),
+                          child: Center(
+                            child: Text("giftcard", style: TextStyle(color: const Color.fromARGB(255, 0, 0, 0))),
+                          ),
                         ),
                       ),
-                    ),
-                    SizedBox(width: 10), // ช่องว่างระหว่าง Container
-                    Expanded(
-                      child: Container(
-                        height: 250,
-                        decoration: BoxDecoration(
-                          border: Border.all(color: Colors.black), // กรอบสีดำ
-                          borderRadius: BorderRadius.circular(10), // มุมโค้ง
-                        ),
-                        child: Center(
-                          child: Text("giftcard", style: TextStyle(color: const Color.fromARGB(255, 0, 0, 0))),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ],
+                    ],
+                  ),
+                ],
+              ),
             ),
           ],
         ),
