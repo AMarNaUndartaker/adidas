@@ -59,14 +59,14 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Image.asset(
                   "assets/image/kawaii.png",
                   width: double.infinity,
-                  height: 900,
+                  height: 200,
                   fit: BoxFit.fill,
                 ),
               ),
             ),
             SizedBox(height: 10),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 40),
+              padding: const EdgeInsets.symmetric(horizontal: 0),
               child: ListView(
                 shrinkWrap: true,
                 physics: NeverScrollableScrollPhysics(),
@@ -112,19 +112,20 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               ),
             ),
-            // ✅ ส่วนที่หายไปถูกเพิ่มกลับมา**
+            
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 40),
+              padding: const EdgeInsets.symmetric(horizontal: 5),
               child: Column(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Row(
+                    padding: const EdgeInsets.all(0),
+                    child: 
+                    Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Expanded(
                           child: Container(
-                            height: 250,
+                            height: 100,
                             decoration: BoxDecoration(
                               border: Border.all(color: Colors.black),
                               borderRadius: BorderRadius.circular(10),
@@ -141,7 +142,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   ),
                                   Text(
                                     "sale",
-                                    style: TextStyle(color: Colors.black,fontSize: 24),
+                                    style: TextStyle(color: Colors.black,fontSize: 16),
                                 ),
                                 ],
                               ),
@@ -151,7 +152,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         SizedBox(width: 10),
                         Expanded(
                           child: Container(
-                            height: 250,
+                            height: 100,
                             decoration: BoxDecoration(
                               border: Border.all(color: Colors.black),
                               borderRadius: BorderRadius.circular(10),
@@ -168,7 +169,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   ),
                                   Text(
                                     "Sport",
-                                    style: TextStyle(color: Colors.black,fontSize: 24),
+                                    style: TextStyle(color: Colors.black,fontSize: 16),
                                 ),
                                 ],
                             ),
@@ -179,12 +180,13 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                   SizedBox(height: 10),
+                  
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       Expanded(
                         child: Container(
-                          height: 250,
+                          height: 100,
                           decoration: BoxDecoration(
                             border: Border.all(color: Colors.black),
                             borderRadius: BorderRadius.circular(10),
@@ -201,7 +203,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   ),
                                   Text(
                                     "New & Trending",
-                                    style: TextStyle(color: Colors.black,fontSize: 24),
+                                    style: TextStyle(color: Colors.black,fontSize: 16),
                                 ),
                                 ],
                               ),
@@ -211,7 +213,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       SizedBox(width: 10),
                       Expanded(
                         child: Container(
-                          height: 250,
+                          height: 100,
                           decoration: BoxDecoration(
                             border: Border.all(color: Colors.black),
                             borderRadius: BorderRadius.circular(10),
@@ -228,7 +230,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   ),
                                   Text(
                                     "Gift Cards",
-                                    style: TextStyle(color: Colors.black,fontSize: 24),
+                                    style: TextStyle(color: Colors.black,fontSize: 16),
                                 ),
                                 ],
                               ),
